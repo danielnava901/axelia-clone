@@ -9,6 +9,14 @@ interface SecureProviderProps {
     children: React.ReactNode
 }
 
+const menuOptionList = [
+    {id: 1, caption: "Elementos", path: "/elements/"},
+    {id: 2, caption: "Reportes", path: "/reports/"},
+    {id: 3, caption: "Tickets", path: "/tickets/"},
+    {id: 4, caption: "Trip Check", path: "/tripCheck/"},
+    {id: 5, caption: "GPS's", path: "/multipleSelect/"},
+];
+
 const SecureProvider = (
     {
         children
@@ -17,7 +25,7 @@ const SecureProvider = (
     const [search, setSearch] = useState("");
     const [lastChar, setLastChar] = useState("");
     const [optionListSelected, setOptionListSelected] = useState("");
-    const [menuOptions, setMenuOptions] = useState([]);
+    const [menuOptions, setMenuOptions] = useState<any>(menuOptionList);
     const router = useRouter()
 
     const onChangeFunctionality = (functionality) => {
@@ -34,7 +42,6 @@ const SecureProvider = (
 
     const onChangeOptionListSelected = (obj : any) => {
         setOptionListSelected(obj);
-        console.log("provider", obj);
         router.push(obj.path);
     }
 
@@ -45,11 +52,11 @@ const SecureProvider = (
     useEffect(() => {
         /*Pide opciones del menú*/
         onChangeMenuOptions([
-            {id: 1, caption: "Elementos"},
-            {id: 2, caption: "Reportes"},
-            {id: 3, caption: "Tickets"},
-            {id: 4, caption: "Trip Check"},
-            {id: 5, caption: "GPS's"},
+            {id: 1, caption: "Elementos", path: "/elements/"},
+            {id: 2, caption: "Reportes", path: "/reports/"},
+            {id: 3, caption: "Tickets", path: "/tickets/"},
+            {id: 4, caption: "Trip Check", path: "/tripCheck/"},
+            {id: 5, caption: "GPS's", path: "/multipleSelect/"},
         ]);
     }, []);
 

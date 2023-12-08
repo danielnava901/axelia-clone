@@ -16,7 +16,7 @@ type SecureProviderContextType = {
 
 const SecureProviderContext = createContext<SecureProviderContextType>(
     {
-        currentFunctionality: {},
+        currentFunctionality: {id: 1, caption: "Elementos", path: "/elements/"},
         changeFunctionality: () => {},
         currentSearch: "",
         changeCurrentSearch: () => {},

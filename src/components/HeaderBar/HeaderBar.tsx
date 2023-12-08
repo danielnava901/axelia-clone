@@ -7,7 +7,9 @@ import SecureContext from "../../../contexts/SecureContext";
 
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styles from './styles.module.css';
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect} from "react";
+import {useRouter} from "next/navigation";
+
 
 
 export const HeaderBar = () => {
@@ -18,6 +20,7 @@ export const HeaderBar = () => {
         changeFunctionality
     } = useContext(SecureContext);
 
+    const router = useRouter();
     useEffect(() => {
         const keyDownHandler = event => {
             changeLastCharTouched(event.key);
@@ -57,6 +60,7 @@ export const HeaderBar = () => {
                                 cursor-pointer
                             "
                             onClick={() => {
+                                router.push(item.path);
                                 changeFunctionality(item);
                             }}
                             key={item.id}>

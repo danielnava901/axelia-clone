@@ -5,7 +5,7 @@ import SecureContext from "../../../contexts/SecureContext";
 import {HeaderBar} from "../HeaderBar/HeaderBar";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
-
+import {router} from "next/navigation";
 
 interface LeftSideProps {
     children?: React.ReactNode
@@ -130,7 +130,6 @@ export const LeftSide = (
     }, [lastCharTouched]);
 
     useEffect(() => {
-        console.log("cambio func", currentFunctionality);
         getDataList();
     }, [currentFunctionality]);
 

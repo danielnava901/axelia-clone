@@ -2,7 +2,7 @@ const ElementsPage = () => {
 
 
     return <div>
-        Elementos gps
+        Elementos gps index dummy
     </div>
 }
 
