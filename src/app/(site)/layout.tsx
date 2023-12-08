@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import SecureProvider from "../../../providers/SecureProvider";
-import {LeftSide} from "../../components/LeftSide/LeftSide";
-import {RightSide} from "../../components/RightSide/RightSide";
+import {LeftSide} from "@/components/LeftSide/LeftSide";
+import {RightSide} from "@/components/RightSide/RightSide";
 
 interface SecureLoyoutProps {
     children: React.ReactNode
@@ -16,7 +16,7 @@ const SecureLayout = ({children}: SecureLoyoutProps) => {
         ">
             <LeftSide />
             <RightSide>
-                derecha
+                {children}
             </RightSide>
         </div>
     </SecureProvider>

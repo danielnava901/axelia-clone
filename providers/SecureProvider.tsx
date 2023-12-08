@@ -2,6 +2,8 @@
 
 import SecureProviderContext from "../contexts/SecureContext";
 import React, {useEffect, useState} from "react";
+import { useRouter } from 'next/navigation'
+
 
 interface SecureProviderProps {
     children: React.ReactNode
@@ -16,6 +18,7 @@ const SecureProvider = (
     const [lastChar, setLastChar] = useState("");
     const [optionListSelected, setOptionListSelected] = useState("");
     const [menuOptions, setMenuOptions] = useState([]);
+    const router = useRouter()
 
     const onChangeFunctionality = (functionality) => {
         setFunctionality(functionality);
@@ -31,6 +34,8 @@ const SecureProvider = (
 
     const onChangeOptionListSelected = (obj : any) => {
         setOptionListSelected(obj);
+        console.log("provider", obj);
+        router.push(obj.path);
     }
 
     const onChangeMenuOptions = (options : any) => {
@@ -38,7 +43,6 @@ const SecureProvider = (
     }
 
     useEffect(() => {
-        console.log("sucererovider");
         /*Pide opciones del menú*/
         onChangeMenuOptions([
             {id: 1, caption: "Elementos"},

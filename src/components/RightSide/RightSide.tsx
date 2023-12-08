@@ -4,7 +4,7 @@ import React, {useContext} from "react";
 import SecureContext from "../../../contexts/SecureContext";
 
 interface RightSideProps {
-    children: React.ReactNode
+    children?: React.ReactNode
 }
 
 export const RightSide = (
@@ -19,7 +19,8 @@ export const RightSide = (
                 h-full
                 flex-1
                 overflow-y-auto
-                py-2
+                flex
+                flex-col
             ">
             {children}
         </div>

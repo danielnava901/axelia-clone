@@ -2,7 +2,7 @@ const ElementsPage = () => {
 
 
     return <div>
-        Elementos
+        Elementos gps
     </div>
 }
 

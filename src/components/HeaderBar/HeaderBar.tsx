@@ -14,7 +14,8 @@ export const HeaderBar = () => {
     const {currentSearch,
         changeCurrentSearch,
         changeLastCharTouched,
-        menuOptions
+        menuOptions,
+        changeFunctionality
     } = useContext(SecureContext);
 
     useEffect(() => {
@@ -45,7 +46,6 @@ export const HeaderBar = () => {
                             w-full
                             flex-wrap
                             text-sm
-                            hover:opacity-75
                         ">
                             {menuOptions.map(item => {
                                 return <div className="
@@ -53,7 +53,13 @@ export const HeaderBar = () => {
                                 h-[64px]
                                 border
                                 m-3
-                            " key={item.id}>
+                                hover:opacity-75
+                                cursor-pointer
+                            "
+                            onClick={() => {
+                                changeFunctionality(item);
+                            }}
+                            key={item.id}>
                                     {item.caption}
                                 </div>
                             })}

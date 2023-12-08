@@ -17,35 +17,82 @@ const dummyElements = [
         name: "Element 1",
         ua: "2hrs",
         icon: "",
-        color: "green"
+        color: "green",
+        path: "/elements/gps/1"
     },
     {
         id: 2,
         name: "Element 2",
         ua: "2hrs",
         icon: "",
-        color: "green"
+        color: "green",
+        path: "/elements/gps/2"
     },
     {
         id: 3,
         name: "Element 3",
         ua: "2hrs",
         icon: "",
-        color: "green"
+        color: "green",
+        path: "/elements/gps/3"
     },
     {
         id: 4,
         name: "Element 4",
         ua: "2hrs",
         icon: "",
-        color: "green"
+        color: "green",
+        path: "/elements/gps/4"
     },
     {
         id: 5,
         name: "Element 5",
         ua: "2hrs",
         icon: "",
-        color: "green"
+        color: "green",
+        path: "/elements/gps/5"
+    },
+];
+const dummyReports = [
+    {
+        id: 1,
+        name: "Report 1",
+        ua: "2hrs",
+        icon: "",
+        color: "green",
+        path: "/reports/1"
+    },
+    {
+        id: 2,
+        name: "Report 2",
+        ua: "2hrs",
+        icon: "",
+        color: "green",
+        path: "/reports/2"
+    },
+    {
+        id: 3,
+        name: "Report 3",
+        ua: "2hrs",
+        icon: "",
+        color: "green",
+        path: "/reports/3"
+    },
+    {
+        id: 4,
+        name: "Report 4",
+        ua: "2hrs",
+        icon: "",
+        color: "green",
+        path: "/reports/4"
+    },
+    {
+        id: 5,
+        name: "Report 5",
+        ua: "2hrs",
+        icon: "",
+        color: "green",
+        path: "/reports/5"
     },
 ];
 
@@ -56,22 +103,36 @@ export const LeftSide = (
     const {
         currentSearch,
         changeOptionListSelected,
-        lastCharTouched
+        lastCharTouched,
+        otionListSeleted,
+        currentFunctionality
     } = useContext(SecureContext);
 
     const [dataList, setDataList] = useState([]);
 
     const getDataList = () => {
-        console.log("Hacer petición para traer la lista de la izquierda",
-            currentSearch);
-        setDataList(dummyElements);
+        console.log("Hacer petición para traer la lista de la izquierda",currentSearch);
+        //Se tendría que hacer peticion de lista de la izquierda que corresponda
+        //al functionality current
+        if(currentFunctionality.id === 2 /*reportes*/) {
+            setDataList(dummyReports);
+        }else {
+            setDataList(dummyElements);
+        }
+
     };
+
 
     useEffect(() => {
         if(lastCharTouched === "Enter") {
             getDataList();
         }
     }, [lastCharTouched]);
+
+    useEffect(() => {
+        console.log("cambio func", currentFunctionality);
+        getDataList();
+    }, [currentFunctionality]);
 
     return (
         <div className="
@@ -90,15 +151,16 @@ export const LeftSide = (
                 {
                     dataList.map(item => {
                         return <div key={item.id}
-                                    className="
-                                    w-full
-                                    flex
-                                    items-center
-                                    h-[48px]
-                                    hover:opacity-75
-                                    hover:bg-gray-200
-                                    cursor-pointer
-                                "
+                            className={`
+                                w-full
+                                flex
+                                items-center
+                                h-[48px]
+                                hover:opacity-75
+                                cursor-pointer
+                                ${+item.id === +otionListSeleted.id ? "bg-blue-600" : 
+                                "hover:bg-gray-200"}
+                            `}
                             onClick={() => {
                                 changeOptionListSelected(item);
                             }}
