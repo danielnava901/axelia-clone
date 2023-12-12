@@ -68,7 +68,7 @@ const SecureProvider = (
             changeCurrentSearch: onChangeSearch,
             lastCharTouched: lastChar,
             changeLastCharTouched: onChangeLastChar,
-            otionListSeleted: optionListSelected,
+            optionListSeleted: optionListSelected,
             changeOptionListSelected: onChangeOptionListSelected,
             menuOptions: menuOptions,
             changeMenuOptions: onChangeMenuOptions

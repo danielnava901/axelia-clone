@@ -11,7 +11,7 @@ export const RightSide = (
     {children} : RightSideProps
 ) => {
     const {
-        otionListSeleted
+        optionListSeleted
     } = useContext(SecureContext);
 
     return (

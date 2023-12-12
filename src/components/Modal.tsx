@@ -1,5 +1,6 @@
 import React from "react";
 import * as Dialog from '@radix-ui/react-dialog';
+import {IoMdClose} from "react-icons/io";
 
 
 interface ModalProps {
@@ -32,6 +33,7 @@ export const Modal = (
                         backdrop-blur
                         fixed
                         inset-0
+                        z-[1]
                     "
                 />
                 <Dialog.Content className="
@@ -51,9 +53,10 @@ export const Modal = (
                     translate-x-[-50%]
                     translate-y-[-50%]
                     rounded-md
-                    bg-neutral-800
+                    bg-white
                     p-[25px]
                     focus:outline-none
+                    z-[2]
                 ">
                     <Dialog.Title className="
                         text-xl
@@ -74,7 +77,9 @@ export const Modal = (
                     <di>
                         {children}
                     </di>
-                    <Dialog.Close asChild>
+                    <Dialog.Close asChild onClick={() => {
+                        onChange(!isOpen)
+                    }}>
                         <button className="
                             text-neutral-400
                             hover:text-white

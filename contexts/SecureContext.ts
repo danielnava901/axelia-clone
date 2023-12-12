@@ -7,7 +7,7 @@ type SecureProviderContextType = {
     changeCurrentSearch: (search: string) => void,
     lastCharTouched: string,
     changeLastCharTouched: (char: string) => void,
-    otionListSeleted: any,
+    optionListSeleted: any,
     changeOptionListSelected: (obj: any) => void,
     menuOptions: [],
     changeMenuOptions: (options : any) => void
@@ -22,7 +22,7 @@ const SecureProviderContext = createContext<SecureProviderContextType>(
         changeCurrentSearch: () => {},
         lastCharTouched: "",
         changeLastCharTouched: () => {},
-        otionListSeleted: {},
+        optionListSeleted: {},
         changeOptionListSelected: () => {},
         menuOptions: [],
         changeMenuOptions: () => {}

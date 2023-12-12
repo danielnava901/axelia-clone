@@ -3,9 +3,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import SecureContext from "../../../contexts/SecureContext";
 import {HeaderBar} from "../HeaderBar/HeaderBar";
-import { FaPlusCircle } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa";
-import {router} from "next/navigation";
+import {Modal} from "@/components/Modal";
+import {ListItemsBar} from "@/components/ListItemsBar/ListItemsBar";
+import {LeftSideFooter} from "@/components/LeftSideFooter/LeftSideFooter";
 
 interface LeftSideProps {
     children?: React.ReactNode
@@ -96,6 +97,11 @@ const dummyReports = [
     },
 ];
 
+const ModalChilds = {
+    NewElement: <div>Element</div>,
+    NewReport: <div>Report</div>
+};
+
 export const LeftSide = (
     {
         children
@@ -104,24 +110,30 @@ export const LeftSide = (
         currentSearch,
         changeOptionListSelected,
         lastCharTouched,
-        otionListSeleted,
+        optionListSeleted,
         currentFunctionality
     } = useContext(SecureContext);
 
     const [dataList, setDataList] = useState([]);
+    const [newModalChild, setNewModalChild] = useState("NewElement");
+    const [showNewModal, setShowNewModal] = useState(true);
 
     const getDataList = () => {
-        console.log("Hacer petición para traer la lista de la izquierda",currentSearch);
         //Se tendría que hacer peticion de lista de la izquierda que corresponda
         //al functionality current
-        if(currentFunctionality.id === 2 /*reportes*/) {
+        if(!!currentFunctionality  && currentFunctionality?.id === 2 /*reportes*/) {
             setDataList(dummyReports);
+            setNewModalChild("NewReport");
         }else {
             setDataList(dummyElements);
+            setNewModalChild("NewElement");
         }
 
     };
 
+    const getModalChild = (componentType) => {
+        return ModalChilds[componentType]
+    };
 
     useEffect(() => {
         if(lastCharTouched === "Enter") {
@@ -141,51 +153,27 @@ export const LeftSide = (
                 border-r
             ">
             <HeaderBar />
-            <div className="
-                w-full
-                h-full
-                overflow-auto
-                min-h-[calc(100vh - 400px)]
-            ">
+            <ListItemsBar
+                list={dataList}
+                optionListSeleted={optionListSeleted}
+                changeOptionListSelected={(item: any) => {
+                  changeOptionListSelected(item);
+                }}
+            />
+            <LeftSideFooter onClickPlusBtn={() => {
+                setShowNewModal(true);
+            }} />
+
+            <Modal
+                title="Nuevo"
+                isOpen={showNewModal}
+                onChange={(isOpen) => {
+                setShowNewModal(isOpen);
+            }}>
                 {
-                    dataList.map(item => {
-                        return <div key={item.id}
-                            className={`
-                                w-full
-                                flex
-                                items-center
-                                h-[48px]
-                                hover:opacity-75
-                                cursor-pointer
-                                ${+item.id === +otionListSeleted.id ? "bg-blue-600" : 
-                                "hover:bg-gray-200"}
-                            `}
-                            onClick={() => {
-                                changeOptionListSelected(item);
-                            }}
-                        >
-                            <div className="w-1/4 flex justify-center items-center">{item.id}</div>
-                            <div className="flex-1">{item.name}</div>
-                            <div className="w-1/4 flex justify-center items-center">{item.ua}</div>
-                        </div>
-                    })
+                    getModalChild(newModalChild)
                 }
-            </div>
-            <div className="
-                h-[52px]
-                w-full
-                text-green-600
-                text-5xl
-                flex
-                justify-center
-                hover:text-white
-                hover:bg-green-600
-                cursor-pointer
-                hover:ease-in
-                p-1
-            ">
-                <FaPlus />
-            </div>
+            </Modal>
         </div>
     )
 }
