@@ -1,10 +1,7 @@
 "use client"
 
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoIosRefresh } from "react-icons/io";
-import { BsArrowsExpandVertical } from "react-icons/bs";
 import SecureContext from "../../../contexts/SecureContext";
-
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styles from './styles.module.css';
 import {useContext, useEffect} from "react";
@@ -21,17 +18,8 @@ export const HeaderBar = () => {
     } = useContext(SecureContext);
 
     const router = useRouter();
-    useEffect(() => {
-        const keyDownHandler = event => {
-            changeLastCharTouched(event.key);
-        };
 
-        document.addEventListener('keydown', keyDownHandler);
 
-        return () => {
-            document.removeEventListener('keydown', keyDownHandler);
-        };
-    }, []);
     return (
         <NavigationMenu.Root className={styles.NavigationMenuRoot}>
             <NavigationMenu.List className={styles.NavigationMenuList}>
@@ -71,33 +59,8 @@ export const HeaderBar = () => {
                     </NavigationMenu.Content>
                 </NavigationMenu.Item>
 
-                <NavigationMenu.Item className="flex-1 w-full">
-                    <input type="text"
-                           className={styles.NavigationSearchInput}
-                           value={currentSearch}
-                           onChange={(ev) => {
-                               changeCurrentSearch(ev.target.value);
-                               changeLastCharTouched(ev.key)
-                           }}
-                    />
-                </NavigationMenu.Item>
-
-                <NavigationMenu.Item>
-                    <NavigationMenu.Trigger
-                        asChild={false}
-                        style={{fontSize: "24px"}}
-                        className={styles.NavigationMenuTrigger}>
-                        <IoIosRefresh  />
-                    </NavigationMenu.Trigger>
-                </NavigationMenu.Item>
-
-                <NavigationMenu.Item>
-                    <NavigationMenu.Trigger
-                        asChild={false}
-                        style={{fontSize: "24px"}}
-                        className={styles.NavigationMenuTrigger}>
-                        <BsArrowsExpandVertical />
-                    </NavigationMenu.Trigger>
+                <NavigationMenu.Item className="text-white w-full flex items-center text-xl ml-8">
+                    <span>Axelia</span>
                 </NavigationMenu.Item>
             </NavigationMenu.List>
         </NavigationMenu.Root>

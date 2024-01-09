@@ -1,4 +1,5 @@
-import {createContext, useContext} from "react";
+import {createContext} from "react";
+import {FilterCompleteItem} from "../constants/contants";
 
 type SecureProviderContextType = {
     currentFunctionality: {},
@@ -10,7 +11,8 @@ type SecureProviderContextType = {
     optionListSeleted: any,
     changeOptionListSelected: (obj: any) => void,
     menuOptions: [],
-    changeMenuOptions: (options : any) => void
+    changeMenuOptions: (options : any) => void,
+    currentFilters: FilterCompleteItem | [],
 }
 
 
@@ -25,7 +27,8 @@ const SecureProviderContext = createContext<SecureProviderContextType>(
         optionListSeleted: {},
         changeOptionListSelected: () => {},
         menuOptions: [],
-        changeMenuOptions: () => {}
+        changeMenuOptions: () => {},
+        currentFilters: []
     }
 );
 
