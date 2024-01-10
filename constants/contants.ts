@@ -19,41 +19,143 @@ export type FilterCompleteItem = {
 export const dummyElements = [
     {
         id: 1,
-        name: "Tipos de elementos",
-        path: null,
-        options: [
-            {
-                id: 1001,
-                name: "Guard Monitor",
-                path: null,
-            },
-            {
-                id: 1002,
-                name: "PSA",
-                path: null,
-            },
-            {
-                id: 1003,
-                name: "Guard Check",
-                path: null,
-            }
-        ]
+        name: "Elemento 1",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
     },
     {
         id: 2,
-        name: "Element 2",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/elements/gps/2"
+        name: "Elemento 2",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
     },
     {
         id: 3,
-        name: "Element 3",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/elements/gps/3"
+        name: "Elemento 3",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 4,
+        name: "Elemento 4",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 5,
+        name: "Elemento 5",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 6,
+        name: "Elemento 6",
+        ua: "1 dia",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 7,
+        name: "Elemento 7",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 8,
+        name: "Elemento 8",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 9,
+        name: "Elemento 9",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 10,
+        name: "Elemento 10",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 11,
+        name: "Elemento 1",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 12,
+        name: "Elemento 2",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 13,
+        name: "Elemento 3",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 14,
+        name: "Elemento 4",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 15,
+        name: "Elemento 5",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 16,
+        name: "Elemento 6",
+        ua: "1 dia",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 17,
+        name: "Elemento 7",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 18,
+        name: "Elemento 8",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id:19,
+        name: "Elemento 9",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
+    },
+    {
+        id: 20,
+        name: "Elemento 10",
+        ua: "5 dias",
+        group_name: "Tilprueba",
+        client_name: "TILATINA"
     }
 ];
 export const dummyReports = [

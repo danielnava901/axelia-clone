@@ -2,6 +2,7 @@
 
 import React, {useContext} from "react";
 import SecureContext from "../../../contexts/SecureContext";
+import {ElementTabs} from "@/components/Elements/ElementTabs";
 
 interface RightSideProps {
     children?: React.ReactNode

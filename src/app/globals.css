@@ -13,3 +13,16 @@
 html, body {
   height: 100%;
 }
+
+
+.rdt_TableBody {
+  height: calc(100vh - 160px) !important;
+  max-height: calc(100vh - 160px) !important;
+  overflow-y: auto !important;
+}
+
+.rdt_TableRow:hover {
+  opacity: 0.75;
+  cursor: pointer;
+  background-color: rgba(230, 230, 230, 0.7);
+}

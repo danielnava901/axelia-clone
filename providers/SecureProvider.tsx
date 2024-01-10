@@ -21,6 +21,7 @@ const SecureProvider = (
     const [menuOptions, setMenuOptions] = useState<any>(menuOptionList);
     const [filters, setFilters] = useState<FilterCompleteItem>(getFiltersByFunctionality(menuOptions[0]));
     const [appliedFilters, setAppliedFilters] = useState([]);
+    const [currentElementSelected, setCurrentElementSelected] = useState(null);
     const router = useRouter()
 
     const onChangeFunctionality = (functionality) => {
@@ -49,6 +50,10 @@ const SecureProvider = (
         setAppliedFilters(options)
     }
 
+    const onChangeCurrentElementSelected = (element: any) => {
+        setCurrentElementSelected(element)
+    }
+
     useEffect(() => {
         /*Pide opciones del menú*/
     }, []);
@@ -67,7 +72,9 @@ const SecureProvider = (
             changeMenuOptions: onChangeMenuOptions,
             currentFilters: filters,
             appliedFilters: appliedFilters,
-            changeAppliedFilters: onChangeAppliedFilters
+            changeAppliedFilters: onChangeAppliedFilters,
+            currentElementSelected: currentElementSelected,
+            changeCurrentElementSelected: onChangeCurrentElementSelected
         }
     }>
         {children}
