@@ -13,6 +13,8 @@ type SecureProviderContextType = {
     menuOptions: [],
     changeMenuOptions: (options : any) => void,
     currentFilters: FilterCompleteItem | [],
+    appliedFilters: [],
+    changeAppliedFilters: (obj: any) => void
 }
 
 
@@ -28,7 +30,9 @@ const SecureProviderContext = createContext<SecureProviderContextType>(
         changeOptionListSelected: () => {},
         menuOptions: [],
         changeMenuOptions: () => {},
-        currentFilters: []
+        currentFilters: [],
+        appliedFilters: [],
+        changeAppliedFilters: () => {}
     }
 );
 

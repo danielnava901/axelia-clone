@@ -1,6 +1,7 @@
 type OptionItem = {
-    id: number,
-    name: string
+    id: number|string,
+    name: string,
+    class?: string
 };
 type FilterItem = {
     id: number,
@@ -124,12 +125,27 @@ export const allFilters : FilterCompleteItem[] = [
                     {id: 3, name: "Tilatina"},
                     {id: 4, name: "ZOtros"},
                     {id: 6, name: "ZPruebas"},
+                    {id: 7, name: "Grupo pruebas"},
+                    {id: 8, name: "TilPruebas"},
+                    {id: 9, name: "Tilatina"},
+                    {id: 10, name: "ZOtros"},
+                    {id: 11, name: "ZPruebas"},
+                    {id: 12, name: "Grupo pruebas"},
+                    {id: 13, name: "TilPruebas"},
+                    {id: 14, name: "Tilatina"},
+                    {id: 15, name: "ZOtros"},
+                    {id: 16, name: "ZPruebas"},
                 ]
             },
             {
                 id: 3,
                 header: "Colores",
-                options: []
+                options: [
+                    {id: 'R', name: 'Rojo', class: "bg-red-400"},
+                    {id: 'Y', name: 'Amarillo', class: "bg-yellow-400"},
+                    {id: 'G', name: 'Verde', class: "bg-green-400"},
+                    {id: 'Z', name: 'Gris', class: "bg-gray-200"},
+                ]
             }
         ]
     },
@@ -151,3 +167,12 @@ export const getFiltersByFunctionality = (functionality) : FilterCompleteItem =>
         return item.id === functionality?.id
     });
 }
+
+
+export const menuOptionList = [
+    {id: 1, caption: "Elementos", path: "/elements/"},
+    {id: 2, caption: "Reportes", path: "/reports/"},
+    {id: 3, caption: "Tickets", path: "/tickets/"},
+    {id: 4, caption: "Trip Check", path: "/tripCheck/"},
+    {id: 5, caption: "GPS's", path: "/multipleSelect/"},
+];
