@@ -1,8 +1,6 @@
 "use client"
 
-import React, {useContext} from "react";
-import SecureContext from "../../../contexts/SecureContext";
-import {ElementTabs} from "@/components/Elements/ElementTabs";
+import React from "react";
 
 interface RightSideProps {
     children?: React.ReactNode
@@ -11,9 +9,6 @@ interface RightSideProps {
 export const RightSide = (
     {children} : RightSideProps
 ) => {
-    const {
-        optionListSeleted
-    } = useContext(SecureContext);
 
     return (
         <div className="

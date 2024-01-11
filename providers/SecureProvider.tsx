@@ -3,25 +3,36 @@
 import SecureProviderContext from "../contexts/SecureContext";
 import React, {useEffect, useState} from "react";
 import { useRouter } from 'next/navigation'
-import {FilterCompleteItem, getFiltersByFunctionality, menuOptionList} from "../constants/contants";
+import {
+    ElementItem,
+    FilterCompleteItem,
+    getFiltersByFunctionality, getFunctionalityByPath,
+    menuOptionList
+} from "../constants/contants";
 
 
 interface SecureProviderProps {
     children: React.ReactNode
 }
 
+const getFunctionalityByUrl = () => {
+    console.log(window.location.pathname);
+    let path = window.location.pathname;
+    return getFunctionalityByPath(path);
+}
+
 const SecureProvider = (
     {
         children
     } : SecureProviderProps) => {
-    const [functionality, setFunctionality] = useState(menuOptionList[0]);
+    const [functionality, setFunctionality] = useState(getFunctionalityByUrl());
     const [search, setSearch] = useState("");
     const [lastChar, setLastChar] = useState("");
     const [optionListSelected, setOptionListSelected] = useState("");
     const [menuOptions, setMenuOptions] = useState<any>(menuOptionList);
-    const [filters, setFilters] = useState<FilterCompleteItem>(getFiltersByFunctionality(menuOptions[0]));
+    const [filters, setFilters] = useState<FilterCompleteItem|[]>([]);
     const [appliedFilters, setAppliedFilters] = useState([]);
-    const [currentElementSelected, setCurrentElementSelected] = useState(null);
+    const [currentElementSelected, setCurrentElementSelected] = useState<ElementItem>(null);
     const router = useRouter()
 
     const onChangeFunctionality = (functionality) => {
@@ -54,8 +65,17 @@ const SecureProvider = (
         setCurrentElementSelected(element)
     }
 
+    const onChangeCurrentFilters = (options: any) => {
+        setFilters(getFiltersByFunctionality(functionality));
+    }
+
     useEffect(() => {
-        /*Pide opciones del menú*/
+        console.log("")
+        if(!!functionality) {
+            onChangeFunctionality(getFiltersByFunctionality(functionality));
+        }else {
+            onChangeFunctionality([]);
+        }
     }, []);
 
     return <SecureProviderContext.Provider value={
@@ -71,6 +91,7 @@ const SecureProvider = (
             menuOptions: menuOptions,
             changeMenuOptions: onChangeMenuOptions,
             currentFilters: filters,
+            changeCurrentFilters: onChangeCurrentFilters,
             appliedFilters: appliedFilters,
             changeAppliedFilters: onChangeAppliedFilters,
             currentElementSelected: currentElementSelected,

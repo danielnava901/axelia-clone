@@ -4,15 +4,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import SecureContext from "../../../contexts/SecureContext";
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import styles from './styles.module.css';
-import {useContext, useEffect} from "react";
+import {useContext} from "react";
 import {useRouter} from "next/navigation";
 
 
 
 export const HeaderBar = () => {
-    const {currentSearch,
-        changeCurrentSearch,
-        changeLastCharTouched,
+    const {
         menuOptions,
         changeFunctionality
     } = useContext(SecureContext);

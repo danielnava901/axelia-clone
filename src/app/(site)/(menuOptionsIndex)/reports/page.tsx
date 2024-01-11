@@ -2,12 +2,11 @@
 import {useContext, useEffect, useState} from "react";
 import SecureContext from "../../../../../contexts/SecureContext";
 import DataTable from 'react-data-table-component';
-import {dummyElements} from "../../../../../constants/contants";
+import {dummyReports} from "../../../../../constants/contants";
 
-const ElementsPage = () => {
+const ReportsPage = () => {
     const {
-        appliedFilters,
-        changeCurrentElementSelected,
+        changeCurrentElementSelected
     } = useContext(SecureContext);
     const [data, setData] = useState([]);
     const columns = [
@@ -17,47 +16,31 @@ const ElementsPage = () => {
             grow: 0
         },
         {
-            name: "Nombre",
+            name: "Título",
             selector: row => <span className="text-blue-400
                 underline
                 cursor-pointer
                 hover:opacity-75
                 "
-           onClick={() => {
-               changeCurrentElementSelected(row);
-           }}>
-                {row.name}
+                onClick={() => {
+                       changeCurrentElementSelected(row);
+                   }}>
+                {row.title}
             </span>,
             grow: 1
-        },
-        {
-            name: "Grupo",
-            selector: row => row.group_name,
-            grow: 0
-        },
-        {
-            name: "Cliente",
-            selector: row => row.client_name,
-            grow: 0
-        },
-        {
-            name: "UA",
-            selector: row => row.ua,
-            grow: 0
-        },
+        }
     ];
 
     const getData = async () => {
-        setData(dummyElements);
+        setData(dummyReports);
     };
 
     useEffect(() => {
         getData();
-
-    }, [appliedFilters]);
+    }, []);
 
     return <div className="w-full flex flex-col h-full p-2 overflow-auto max-h-full">
-        <div><span>Elementos</span></div>
+        <div><span>Reportes</span></div>
         <DataTable
             columns={columns}
             data={data}
@@ -69,4 +52,4 @@ const ElementsPage = () => {
     </div>
 }
 
-export default ElementsPage;
+export default ReportsPage;

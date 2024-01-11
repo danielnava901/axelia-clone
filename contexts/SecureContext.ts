@@ -1,5 +1,5 @@
 import {createContext} from "react";
-import {FilterCompleteItem} from "../constants/contants";
+import {ElementItem, FilterCompleteItem} from "../constants/contants";
 
 type SecureProviderContextType = {
     currentFunctionality: {},
@@ -13,9 +13,10 @@ type SecureProviderContextType = {
     menuOptions: [],
     changeMenuOptions: (options : any) => void,
     currentFilters: FilterCompleteItem | [],
+    changeCurrentFilters: (options: any) => void,
     appliedFilters: [],
     changeAppliedFilters: (obj: any) => void,
-    currentElementSelected: any,
+    currentElementSelected: ElementItem | null,
     changeCurrentElementSelected: (obj: any) => void
 }
 
@@ -33,6 +34,7 @@ const SecureProviderContext = createContext<SecureProviderContextType>(
         menuOptions: [],
         changeMenuOptions: () => {},
         currentFilters: [],
+        changeCurrentFilters: () => {},
         appliedFilters: [],
         changeAppliedFilters: () => {},
         currentElementSelected: null,

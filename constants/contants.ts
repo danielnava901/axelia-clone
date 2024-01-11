@@ -16,188 +16,288 @@ export type FilterCompleteItem = {
     filters?: FilterItem[]
 }
 
-export const dummyElements = [
+export type ElementItem = {
+    id: number,
+    name: string,
+    ua: string,
+    group_name: string,
+    client_name: string,
+    type: "element" | "report",
+    element_type_id: number
+}
+
+export const dummyElements : ElementItem[] = [
     {
         id: 1,
         name: "Elemento 1",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 2,
-        name: "Elemento 2",
+        name: "Elemento 2 SITE",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 6
     },
     {
         id: 3,
         name: "Elemento 3",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 4,
         name: "Elemento 4",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 5,
         name: "Elemento 5",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 6,
         name: "Elemento 6",
         ua: "1 dia",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 7,
         name: "Elemento 7",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 8,
         name: "Elemento 8",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 9,
         name: "Elemento 9",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 10,
         name: "Elemento 10",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 11,
         name: "Elemento 1",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 12,
         name: "Elemento 2",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 13,
         name: "Elemento 3",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 14,
         name: "Elemento 4",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 15,
         name: "Elemento 5",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 16,
         name: "Elemento 6",
         ua: "1 dia",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 17,
         name: "Elemento 7",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 18,
         name: "Elemento 8",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id:19,
         name: "Elemento 9",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     },
     {
         id: 20,
         name: "Elemento 10",
         ua: "5 dias",
         group_name: "Tilprueba",
-        client_name: "TILATINA"
+        client_name: "TILATINA",
+        type: "element",
+        element_type_id: 4
     }
 ];
+
+export const elementTypes = {
+    1: "GUARD_MON",
+    2: "PSA",
+    3: "GUARD_CHECK",
+    4: "GPS",
+    6: "SITE"
+};
+
+export const tabsByElements = {
+    "GPS": [
+        {
+            id: 1,
+            caption: "Info",
+            path: "/gps/__ID__",
+            last_click: 1,
+            selected: true
+        },
+        {
+            id: 2,
+            caption: "Mapa",
+            path: "/gps/mapa/__ID__",
+            last_click: 1,
+            selected: false
+        },
+        {
+            id: 3,
+            caption: "Eventos",
+            path: "/gps/eventos/__ID__",
+            last_click: 1,
+            selected: false
+        },
+        {
+            id: 4,
+            caption: "Comandos",
+            path: "/gps/comandos/__ID__",
+            last_click: 1,
+            selected: false
+        },
+        {
+            id: 5,
+            caption: "Tickets",
+            path: "/gps/tickets/__ID__",
+            last_click: 1,
+            selected: false
+        }
+    ],
+    "SITE": [
+        {
+            id: 1,
+            caption: "Info",
+            path: "/site/__ID__",
+            last_click: 1,
+            selected: true
+        },
+        {
+            id: 2,
+            caption: "Eventos",
+            path: "/site/eventos/__ID__",
+            last_click: 1,
+            selected: false
+        }
+    ]
+};
+
 export const dummyReports = [
     {
         id: 1,
-        name: "Report 1",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/reports/1"
+        title: "Report 1",
+        type: "report",
     },
     {
         id: 2,
-        name: "Report 2",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/reports/2"
+        title: "Report 2",
+        type: "report",
     },
     {
         id: 3,
-        name: "Report 3",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/reports/3"
+        title: "Report 3",
+        type: "report",
     },
     {
         id: 4,
-        name: "Report 4",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/reports/4"
+        title: "Report 4",
+        type: "report",
     },
     {
         id: 5,
-        name: "Report 5",
-        ua: "2hrs",
-        icon: "",
-        color: "green",
-        path: "/reports/5"
+        title: "Report 5",
+        type: "report",
     },
 ];
 
@@ -253,7 +353,7 @@ export const allFilters : FilterCompleteItem[] = [
     },
     {
         id: 2,
-        functionality: "reports",
+        functionality: "report",
         filters: []
     },
     {
@@ -263,18 +363,23 @@ export const allFilters : FilterCompleteItem[] = [
     }
 ];
 
+export const menuOptionList = [
+    {id: 1, caption: "Elementos", path: "/elements"},
+    {id: 2, caption: "Reportes", path: "/reports"},
+    {id: 3, caption: "Tickets", path: "/tickets"},
+    {id: 4, caption: "Trip Check", path: "/tripCheck"},
+    {id: 5, caption: "GPS's", path: "/multipleSelect"},
+];
+
 export const getFiltersByFunctionality = (functionality) : FilterCompleteItem => {
 
+    console.log("getFilters", functionality);
     return allFilters.find((item) => {
         return item.id === functionality?.id
     });
 }
 
-
-export const menuOptionList = [
-    {id: 1, caption: "Elementos", path: "/elements/"},
-    {id: 2, caption: "Reportes", path: "/reports/"},
-    {id: 3, caption: "Tickets", path: "/tickets/"},
-    {id: 4, caption: "Trip Check", path: "/tripCheck/"},
-    {id: 5, caption: "GPS's", path: "/multipleSelect/"},
-];
+export const getFunctionalityByPath = (path) => {
+    return menuOptionList.find(item => item.path === path) ||
+        {id: 1, caption: "Home", path: "/home"};
+}

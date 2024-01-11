@@ -6,7 +6,6 @@ import {HeaderBar} from "../HeaderBar/HeaderBar";
 import {Modal} from "@/components/Modal";
 import {ListItemsBar} from "@/components/ListItemsBar/ListItemsBar";
 import {LeftSideFooter} from "@/components/LeftSideFooter/LeftSideFooter";
-import {dummyElements, dummyReports} from "../../../constants/contants";
 
 interface LeftSideProps {
     children?: React.ReactNode
@@ -23,10 +22,7 @@ export const LeftSide = (
         children
     }: LeftSideProps) => {
     const {
-        changeOptionListSelected,
-        optionListSeleted,
         currentFunctionality,
-        currentFilters
     } = useContext(SecureContext);
 
     const [newModalChild, setNewModalChild] = useState("NewElement");
@@ -50,11 +46,9 @@ export const LeftSide = (
             ">
             <HeaderBar />
             <ListItemsBar />
-
             <LeftSideFooter onClickPlusBtn={() => {
                 setShowNewModal(true);
             }} />
-
             <Modal
                 title="Nuevo"
                 isOpen={showNewModal}
