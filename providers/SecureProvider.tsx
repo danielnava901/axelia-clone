@@ -16,7 +16,6 @@ interface SecureProviderProps {
 }
 
 const getFunctionalityByUrl = () => {
-    console.log(window.location.pathname);
     let path = window.location.pathname;
     return getFunctionalityByPath(path);
 }

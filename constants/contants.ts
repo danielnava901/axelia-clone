@@ -270,6 +270,15 @@ export const tabsByElements = {
             last_click: 1,
             selected: false
         }
+    ],
+    "TICKET": [
+        {
+            id: 1,
+            caption: "Info",
+            path: "/ticket/__ID__",
+            last_click: 1,
+            selected: true
+        },
     ]
 };
 
@@ -300,6 +309,33 @@ export const dummyReports = [
         type: "report",
     },
 ];
+
+export const dummyTickets = [
+    {
+        id: 1,
+        description: "Ticket 1",
+        element_name: "Elemento 1",
+        type: "ticket"
+    },
+    {
+        id: 2,
+        description: "Ticket 2",
+        element_name: "Elemento 1",
+        type: "ticket"
+    },
+    {
+        id: 3,
+        description: "Ticket 3",
+        element_name: "Elemento 11",
+        type: "ticket"
+    },
+    {
+        id: 4,
+        description: "Ticket 4",
+        element_name: "Elemento 1431",
+        type: "ticket"
+    }
+]
 
 export const allFilters : FilterCompleteItem[] = [
     {
@@ -359,7 +395,40 @@ export const allFilters : FilterCompleteItem[] = [
     {
         id: 3,
         functionality: "tickets",
-        filters: []
+        filters: [
+            {
+                id: 2,
+                header: "Grupos",
+                ajax: "",
+                options: [
+                    {id: 1, name: "Grupo pruebas"},
+                    {id: 2, name: "TilPruebas"},
+                    {id: 3, name: "Tilatina"},
+                    {id: 4, name: "ZOtros"},
+                    {id: 6, name: "ZPruebas"},
+                    {id: 7, name: "Grupo pruebas"},
+                    {id: 8, name: "TilPruebas"},
+                    {id: 9, name: "Tilatina"},
+                    {id: 10, name: "ZOtros"},
+                    {id: 11, name: "ZPruebas"},
+                    {id: 12, name: "Grupo pruebas"},
+                    {id: 13, name: "TilPruebas"},
+                    {id: 14, name: "Tilatina"},
+                    {id: 15, name: "ZOtros"},
+                    {id: 16, name: "ZPruebas"},
+                ]
+            },
+            {
+                id: 3,
+                header: "Colores",
+                options: [
+                    {id: 'R', name: 'Rojo', class: "bg-red-400"},
+                    {id: 'Y', name: 'Amarillo', class: "bg-yellow-400"},
+                    {id: 'G', name: 'Verde', class: "bg-green-400"},
+                    {id: 'Z', name: 'Gris', class: "bg-gray-200"},
+                ]
+            }
+        ]
     }
 ];
 
@@ -372,8 +441,6 @@ export const menuOptionList = [
 ];
 
 export const getFiltersByFunctionality = (functionality) : FilterCompleteItem => {
-
-    console.log("getFilters", functionality);
     return allFilters.find((item) => {
         return item.id === functionality?.id
     });

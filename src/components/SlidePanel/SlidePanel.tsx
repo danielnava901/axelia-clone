@@ -2,15 +2,18 @@
 import {useContext, useEffect, useState} from "react";
 import SecureContext from "../../../contexts/SecureContext";
 import {ElementTabs} from "@/components/Elements/ElementTabs";
+import {TicketTabs} from "@/components/Tickets/TicketTabs";
 import Home from "@/app/home/page";
 
+
 const getComponent = (type, props = {}) => {
-    console.log("type", type);
     switch(type) {
         case "home":
             return <Home />;
         case "element":
             return <ElementTabs {...props} />
+        case "ticket":
+            return <TicketTabs {...props} />
         default:
             return <Home />;
     }
@@ -25,9 +28,7 @@ export const SlidePanel = () => {
     const [index, setIndex] = useState("home");
 
     const getData = async () => {
-        if(currentElementSelected?.type === "element") {
-            setIndex("element")
-        }
+        setIndex(currentElementSelected?.type || "home");
     }
 
     useEffect(() => {
