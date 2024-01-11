@@ -5,14 +5,14 @@ const dummyTabs = [
     {
         id: 1,
         caption: "Editar",
-        path: "/elements/gps/__ID__",
+        path: "/gps/__ID__",
         last_click: 1,
         selected: true
     },
     {
         id: 2,
         caption: "Mapa",
-        path: "/elements/gps/__ID__",
+        path: "/gps/__ID__",
         last_click: 1,
         selected: false
     }
@@ -23,14 +23,24 @@ export const ElementTabs = () => {
         changeCurrentElementSelected
     } = useContext(SecureContext);
     const [tabs, setTabs] = useState([]);
+    const [urlSelected, setUrlSelected] = useState("/home");
+
     const getTabs = async () => {
+        console.log("tabs1");
         await setTimeout(() => {}, 2000);
+        console.log("tabs2");
         setTabs(dummyTabs);
+        let url = dummyTabs?.find(tab => tab.selected)["path"]
+            .replace("__ID__", currentElementSelected?.id) || "/home";
+        console.log({url});
+        setUrlSelected(url)
     }
 
     useEffect(() => {
-        getTabs();
-    }, []);
+        if(!!currentElementSelected) {
+            getTabs();
+        }
+    }, [currentElementSelected]);
 
 
     return (
@@ -105,6 +115,7 @@ export const ElementTabs = () => {
                                             return {...t, selected: tab.id === t.id}
                                         })];
                                         setTabs(_tabs);
+                                        setUrlSelected(tab.path.replace("__ID__", currentElementSelected.id))
                                     }}
                                     >{tab.caption}</div>
                                 })
@@ -118,7 +129,7 @@ export const ElementTabs = () => {
                                 w-full
                                 flex
                                 "
-                                src="/home" ></iframe>
+                                src={urlSelected} ></iframe>
                         </div>
                     </div>
 

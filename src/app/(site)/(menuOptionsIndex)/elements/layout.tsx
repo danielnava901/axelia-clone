@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import SecureProvider from "../../../providers/SecureProvider";
+import SecureProvider from "../../../../../providers/SecureProvider";
 import {LeftSide} from "@/components/LeftSide/LeftSide";
 import {RightSide} from "@/components/RightSide/RightSide";
 import {ElementTabs} from "@/components/Elements/ElementTabs";

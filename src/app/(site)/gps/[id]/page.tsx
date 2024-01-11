@@ -6,3 +6,11 @@ export default function Page() {
 
     return <p>Post: {JSON.stringify(params.id)}</p>
 }
+
+Page.getLayout = function getLayout(page) {
+    return (
+        <div className="border">
+            <div>{page}</div>
+        </div>
+    )
+}

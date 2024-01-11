@@ -1,9 +1,8 @@
 "use client"
 import {useContext, useEffect, useState} from "react";
-import SecureContext from "../../../../contexts/SecureContext";
+import SecureContext from "../../../../../contexts/SecureContext";
 import DataTable from 'react-data-table-component';
-import {dummyElements} from "../../../../constants/contants";
-import {ElementTabs} from "@/components/Elements/ElementTabs";
+import {dummyElements} from "../../../../../constants/contants";
 
 const ElementsPage = () => {
     const {
@@ -11,7 +10,6 @@ const ElementsPage = () => {
         changeCurrentElementSelected
     } = useContext(SecureContext);
     const [data, setData] = useState([]);
-    const [currentElement, setCurrentElement] = useState(null);
     const columns = [
         {
             name: "Id",
