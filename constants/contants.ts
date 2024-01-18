@@ -279,6 +279,15 @@ export const tabsByElements = {
             last_click: 1,
             selected: true
         },
+    ],
+    "REPORTS": [
+        {
+            id: 1,
+            caption: "Reporte",
+            path: "/report/__ID__",
+            last_click: 1,
+            selected: true
+        },
     ]
 };
 

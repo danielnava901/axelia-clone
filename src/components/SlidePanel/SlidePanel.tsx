@@ -4,9 +4,11 @@ import SecureContext from "../../../contexts/SecureContext";
 import {ElementTabs} from "@/components/Elements/ElementTabs";
 import {TicketTabs} from "@/components/Tickets/TicketTabs";
 import Home from "@/app/home/page";
+import ReportsTabs from "../Reportes/ReportsTabs";
 
 
 const getComponent = (type, props = {}) => {
+    console.log({type});
     switch(type) {
         case "home":
             return <Home />;
@@ -14,6 +16,8 @@ const getComponent = (type, props = {}) => {
             return <ElementTabs {...props} />
         case "ticket":
             return <TicketTabs {...props} />
+        case "report":
+            return <ReportsTabs {...props} />
         default:
             return <Home />;
     }
@@ -54,7 +58,7 @@ export const SlidePanel = () => {
                 r-0
                 b-0
                 t-0
-                py-4
+
                 z-10
                 "
                 onClick={() =>{

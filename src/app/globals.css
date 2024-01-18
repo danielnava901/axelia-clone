@@ -26,3 +26,7 @@ html, body {
   cursor: pointer;
   background-color: rgba(230, 230, 230, 0.7);
 }
+
+.leaflet-container {
+  height: 100%;
+}

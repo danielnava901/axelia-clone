@@ -69,7 +69,6 @@ const SecureProvider = (
     }
 
     useEffect(() => {
-        console.log("")
         if(!!functionality) {
             onChangeFunctionality(getFiltersByFunctionality(functionality));
         }else {

@@ -1,32 +1,22 @@
-"use client";
+import Tabs from "@/components/Tabs/Tabs";
 import {useContext, useEffect, useState} from "react";
 import SecureContext from "../../../contexts/SecureContext";
-import {elementTypes, tabsByElements} from "../../../constants/contants";
-import Tabs from "@/components/Tabs/Tabs";
+import {tabsByElements} from "../../../constants/contants";
 
-export const ElementTabs = () => {
+const ReportsTabs = () => {
     const {
         currentElementSelected,
         changeCurrentElementSelected
     } = useContext(SecureContext);
-    console.log({
-        initTab: tabsByElements[
-            elementTypes[currentElementSelected?.element_type_id]
-            ].find(tab => tab.selected)
-    })
     const [tabs, setTabs] = useState([]);
     const [urlSelected, setUrlSelected] = useState("/home");
-    const [tabSelected, setTabSelected] = useState(tabsByElements[
-            elementTypes[currentElementSelected?.element_type_id]
-        ].find(tab => tab.selected)
-    );
 
     const getTabs = async () => {
-        let newTabs = tabsByElements[elementTypes[currentElementSelected?.element_type_id]];
+        let newTabs = tabsByElements["REPORTS"] || [];
         setTabs(newTabs);
-        let url = newTabs.find(tab => tab.selected)["path"]
+
+        let url = newTabs?.find(tab => tab.selected)["path"]
             .replace("__ID__", `${currentElementSelected?.id}`) || "/home";
-        console.log({elementUrl: url});
         setUrlSelected(url)
     }
 
@@ -36,11 +26,6 @@ export const ElementTabs = () => {
         }
     }, []);
 
-    const changeTabSelect = (tab) => {
-        console.log("changeT", tab)
-        setTabSelected(tab);
-    };
-
     return <Tabs
         tabs={tabs}
         onSetTabs={setTabs}
@@ -49,8 +34,6 @@ export const ElementTabs = () => {
         onCloseTabs={() => {
             changeCurrentElementSelected(null)
         }}
-        tabSelected={tabSelected}
-        onTabSelect={changeTabSelect}
     >
         <iframe
             className="
@@ -61,3 +44,5 @@ export const ElementTabs = () => {
             src={urlSelected} />
     </Tabs>
 }
+
+export default ReportsTabs;
